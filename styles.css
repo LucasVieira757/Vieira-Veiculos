@@ -1,0 +1,321 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4567b7;
+    color: white;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .vv {
+    color: #8bc34a;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Seção Herói */
+/* Hero Section */
+#hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('banner.jpg'); /* Adicione o caminho para sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay para escurecer a imagem */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content .btn {
+    background-color: #f7dc6f;
+    color: #4567b7;
+    padding: 15px 30px;
+    font-size: 1.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero-content .btn:hover {
+    background-color: #d4b54f;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+
+/* Seção Catálogo */
+.catalogo {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.catalogo h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #4567b7;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.car-item {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.car-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.car-item h3 {
+    font-size: 24px;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+.car-item p {
+    font-size: 20px;
+    color: #8bc34a;
+    margin-bottom: 20px;
+}
+
+.car-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.car-actions .btn {
+    padding: 10px 15px;
+    background-color: #4567b7;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.car-actions .btn:hover {
+    background-color: #335499;
+}
+
+.car-actions .btn.buy {
+    background-color: #f7dc6f;
+    color: #333;
+}
+
+.car-actions .btn.buy:hover {
+    background-color: #f0c42d;
+}
+
+.car-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .car-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Rodapé */
+.footer {
+    background-color: #4567b7;
+    color: #ffffff;
+    padding: 40px 20px;
+    position: relative;
+    text-align: left;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+    min-width: 200px;
+}
+
+.footer-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section .newsletter input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.footer-section .newsletter button {
+    padding: 10px 20px;
+    background-color: #8bc34a;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-section .newsletter button:hover {
+    background-color: #7fb13a;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
